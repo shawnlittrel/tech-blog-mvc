@@ -2,9 +2,9 @@
     <div class="nav-wrapper">
       <a href="/" class="brand-logo">Shawn's Tech Blog</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down orange-lighten-1">
-           {{#if loggedIn}}
+        {{#if loggedIn}}
         <li><a href="dashboard">Dashboard</a></li>
-        <li><a href="homepage">Logout</a></li>
+        <li><a href="/">Logout</a></li>
         {{/if}}
         {{#unless loggedIn}}
         <li><a href="login">Login</a></li>
