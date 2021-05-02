@@ -1,0 +1,9 @@
+<div class="container">
+     <h2 class="text-center">Welcome, {{username}}!</h2>
+     <h3>Your Posts: </h3>
+     <div class="row">
+          {{#each posts}}
+          {{> post-card}}
+          {{/each}}
+     </div>
+</div>
