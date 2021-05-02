@@ -4,8 +4,6 @@ const { Post, User, Comment } = require("../models");
 
 //Render landing page
 router.get('/', (req, res) => {
-     console.log(req.session);
-
      Post.findAll({
           attributes: [
                'id',
@@ -54,7 +52,9 @@ router.get('/register', (req, res) => {
 
 //Render Dashboard
 router.get('/dashboard', (req, res) => {
-     res.render('dashboard');
-})
+     const username = req.session.username;
+     const loggedIn = req.session.loggedIn;
+     res.render('dashboard', {username, loggedIn});
+});
 
 module.exports = router;
