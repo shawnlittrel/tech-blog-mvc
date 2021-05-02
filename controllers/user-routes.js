@@ -52,9 +52,36 @@ router.get('/register', (req, res) => {
 
 //Render Dashboard
 router.get('/dashboard', (req, res) => {
-     const username = req.session.username;
-     const loggedIn = req.session.loggedIn;
-     res.render('dashboard', {username, loggedIn});
+     User.findOne({
+          attributes: { exclude: ['password'] },
+          where: {
+               username: req.session.username
+          },
+
+          include: [
+               {
+                    model: Post,
+                    attributes: ['id', 'title', 'content']
+               },
+               {
+                    model: Comment,
+                    attributes: ['id', 'comment_text'],
+                    include: {
+                         model: Post,
+                         attributes: ['title']
+                    }
+               },
+          ]
+     })
+     .then(userPostData => {
+          const userData = userPostData.get({ plain: true });
+          const post = userData.posts;
+          console.log(post);
+          const username = req.session.username;
+          const loggedIn = req.session.loggedIn;
+         res.render('dashboard', {username, loggedIn, post}); 
+     })
+     
 });
 
 //Create new blog post
