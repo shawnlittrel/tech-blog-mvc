@@ -1,9 +1,18 @@
 <div class="container">
      <h2 class="text-center">Welcome, {{username}}!</h2>
-     <h3>Your Posts: </h3>
+     <div class="row">
+          <div class="col s6 offset-s3">
+              <button class="btn waves-effect waves-light" id="new-post-button">
+                    <i class="material-icons left">note add</i>New Blog Post
+               </button> 
+          </div>
+     </div>
+     <h4>Your Posts: </h4>
      <div class="row">
           {{#each posts}}
           {{> post-card}}
           {{/each}}
      </div>
 </div>
+
+<script src="/javascript/dashboard.js"></script>

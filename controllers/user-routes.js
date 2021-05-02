@@ -57,4 +57,9 @@ router.get('/dashboard', (req, res) => {
      res.render('dashboard', {username, loggedIn});
 });
 
+//Create new blog post
+router.get('/add-blog', (req, res) => {
+     res.render('add-blog');
+})
+
 module.exports = router;
