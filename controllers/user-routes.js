@@ -28,7 +28,6 @@ router.get('/', (req, res) => {
      })
      .then((dbPostData) => {
           const posts = dbPostData.map((post) => post.get({ plain: true }));
-
           res.render('homepage', {
                posts,
                loggedIn: req.session.loggedIn,
@@ -61,7 +60,11 @@ router.get('/dashboard', (req, res) => {
           include: [
                {
                     model: Post,
-                    attributes: ['id', 'title', 'content']
+                    attributes: ['id', 'title', 'content', 'created_at'],
+                    include: {
+                         model: User,
+                         attributes: ['username'],
+                    }
                },
                {
                     model: Comment,
@@ -76,10 +79,12 @@ router.get('/dashboard', (req, res) => {
      .then(userPostData => {
           const userData = userPostData.get({ plain: true });
           const post = userData.posts;
-          console.log(post);
-          const username = req.session.username;
+          const username = userData.username;
+          console.log('POST DATA', post);
+          console.log(username);
+
           const loggedIn = req.session.loggedIn;
-         res.render('dashboard', {username, loggedIn, post}); 
+         res.render('dashboard', {post, username, userData, loggedIn}); 
      })
      
 });
@@ -122,7 +127,6 @@ router.get('/posts/:id', (req, res) => {
                return;
           }
           const userData = userPostData.get({ plain: true });
-          console.log('FULL POST DATA', userData);
          res.render('view-post', userData); 
      })
      .catch(err => {

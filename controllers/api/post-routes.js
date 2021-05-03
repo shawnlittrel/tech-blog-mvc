@@ -115,8 +115,14 @@ router.put('/:id', withAuth, (req, res) => {
      });
 });
 
-//DELETE blog entry
-router.delete('/:id', withAuth, (req, res) => {
+//DELETE blog entry and all comments
+router.delete('/:id', (req, res) => {
+     Comment.destroy({
+          where: {
+               post_id: req.params.id
+          }
+     })
+
      Post.destroy({
           where: {
                id: req.params.id

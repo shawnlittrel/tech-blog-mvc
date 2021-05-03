@@ -2,14 +2,30 @@
      <h2 class="text-center">Welcome, {{username}}!</h2>
      <div class="row">
           <div class="col s6 offset-s3">
-              <button class="btn waves-effect waves-light" id="new-post-button">
+               <button class="btn waves-effect waves-light" id="new-post-button">
                     <i class="material-icons left">note add</i>New Blog Post
-               </button> 
+               </button>
           </div>
      </div>
      <h4>Your Posts: </h4>
      <div class="row">
-          {{> post}}
+          {{#each post}}
+          <div class="col s12">
+               <div class="card horizontal">
+                    <div class="card-stacked">
+                         <div class="card-content">
+                              <p class="flow-text">{{title}}</p>
+                         </div>
+                         <div class="card-action">
+                              <p>By {{user.username}} on {{format_date created_at}}</p>
+                              <a href="/posts/{{id}}">View Full Post</a>
+                              <a href="/posts/edit/{{id}}">Edit Post</a>
+                              <a id="delete-post-button" value={{id}}>Delete Post</a>
+                         </div>
+                    </div>
+               </div>
+          </div>
+          {{/each}}
      </div>
 </div>
 
