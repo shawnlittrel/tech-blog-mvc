@@ -135,4 +135,19 @@ router.delete('/:id', withAuth, (req, res) => {
      });
 });
 
+//POST new comment to blog entry
+router.post('/:id', withAuth, (req, res) => {
+     if (req.session) {
+          Comment.create({
+               comment_text: req.body.comment_text,
+               post_id: req.params.id,
+               user_id: req.session.user_id
+          })
+          .then(dbCommentData => res.json(dbCommentData))
+          .catch(err => {
+               console.log(err);
+               res.status(400).json(err);
+          });
+     }
+});
 module.exports = router;
