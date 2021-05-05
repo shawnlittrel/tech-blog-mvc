@@ -23,4 +23,11 @@ async function loginFormHandler(event) {
    }
 };
 
-   document.querySelector('#login-submit-button').addEventListener('click', loginFormHandler);
+
+function registerRedirect(){
+  document.location.replace('/register');
+}
+
+document.querySelector('#login-submit-button').addEventListener('click', loginFormHandler);
+
+document.querySelector('#register-btn').addEventListener('click', registerRedirect);
