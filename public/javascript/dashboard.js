@@ -19,6 +19,7 @@ function deletePostHandler(event) {
      }
 }
 
+
 document.querySelector('#new-post-button').addEventListener('click', addPostHandler);
 
 document.querySelector('#delete-post-button').addEventListener('click', deletePostHandler);
