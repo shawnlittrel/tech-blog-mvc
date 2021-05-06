@@ -2,6 +2,7 @@ function addPostHandler(event) {
      event.preventDefault();
 
      document.location.replace('/add-blog');
+
 };
 
 function deletePostHandler(event) {
@@ -17,7 +18,7 @@ function deletePostHandler(event) {
 
           document.location.reload();
      }
-}
+};
 
 
 document.querySelector('#new-post-button').addEventListener('click', addPostHandler);
