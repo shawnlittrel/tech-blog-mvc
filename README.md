@@ -25,6 +25,7 @@ A full-stack application to blog about tech news, notes, developments, etc.
 ## Installation
 ---
 This app is fully functional on Heroku.  No install required.
+[Check it out on Heroku now!](https://shawns-tech-blog.herokuapp.com/)
 
 
     
