@@ -16,13 +16,12 @@
           <p>Blog Entry: </p>
      </div>
      <div class="input-field col s12">
-          <textarea id="blog-text" name="blog-text" class="materialize-textarea"
-               value="{{content}}"></textarea>
+          <textarea id="blog-text" name="blog-text" class="materialize-textarea">{{content}}</textarea>
      </div>
 </div>
 <div class="row">
      <div class="col s3 offset-s9">
-          <button class="btn waves-effect waves-light" id="edit-post-button">
+          <button class="btn waves-effect waves-light" id="edit-post-button" value={{id}}>
                <i class="material-icons left">done</i>Submit Blog
           </button>
      </div>

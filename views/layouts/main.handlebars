@@ -12,7 +12,21 @@
 
 <body>
      <header>
-          {{> navbar}}
+          <nav>
+               <div class="nav-wrapper">
+                    <a href="/" class="brand-logo">Shawn's Tech Blog</a>
+                    <ul id="nav-mobile" class="right orange-lighten-1">
+                         {{#if loggedIn}}
+                         <li><a href="/dashboard">Dashboard</a></li>
+                         <li><a id="logout">Logout</a></li>
+                         {{/if}}
+                         {{#unless loggedIn}}
+                         <li><a href="/login">Login</a></li>
+                         <li><a href="/register">Register</a></li>
+                         {{/unless}}
+                    </ul>
+               </div>
+          </nav>
      </header>
      <main>
           <div class="container">
@@ -25,5 +39,8 @@
 
 </body>
 
+{{#if loggedIn}}
+<script src="./javascript/logout.js"></script>
+{{/if}}
 
 </html>

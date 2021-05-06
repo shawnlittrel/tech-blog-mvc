@@ -3,6 +3,9 @@ async function commentHandler(event) {
      console.log('ASYNC FUNCTION');
      let id = event.target.value;
 
+     console.log('ID', id)
+
+
      let comment_text = document.querySelector('#new-comment-text').value.trim();
 
      const response = await fetch(`/api/posts/${id}`, {
@@ -14,7 +17,7 @@ async function commentHandler(event) {
      });
 
      if (response.ok) {
-          document.location.reload()
+          location.reload()
      } else {
           alert(response.statusText);
      }

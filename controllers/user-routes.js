@@ -115,14 +115,16 @@ router.get("/posts/:id", (req, res) => {
       },
     ],
   })
-    .then((userPostData) => {
+    .then(userPostData => {
       if (!userPostData) {
         res.status(404).json({ message: "No post found with this id." });
         return;
       }
       const userData = userPostData.get({ plain: true });
+      const loggedIn = req.session.loggedIn;
       if (req.session.loggedIn) {
-        res.render("view-post", userData);
+        console.log('USERDATA', userData);
+        res.render("view-post", { userData, loggedIn });
       } else {
         res.render("login");
       }
@@ -134,8 +136,7 @@ router.get("/posts/:id", (req, res) => {
 });
 
 //Edit blog entry
-router.get("/posts/edit/:id"),
-  (req, res) => {
+router.get("/posts/edit/:id", (req, res) => {
     Post.findOne({
       where: {
         id: req.params.id,
@@ -175,6 +176,6 @@ router.get("/posts/edit/:id"),
         console.log(err);
         res.status(500).json(err);
       });
-  };
+  });
 
 module.exports = router;
