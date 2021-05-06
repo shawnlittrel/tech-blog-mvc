@@ -2,7 +2,7 @@
 ---
     
     
-![Licensing](https://img.shields.io/github/license/shawnlittrel/Tech Blog)   ![GitHub language count](https://img.shields.io/github/languages/count/shawnlittrel/Tech Blog)      ![GitHub issues](https://img.shields.io/github/issues/shawnlittrel/Tech Blog)   ![GitHub closed issues](https://img.shields.io/github/issues-closed/shawnlittrel/Tech Blog)      ![GitHub last commit](https://img.shields.io/github/last-commit/shawnlittrel/Tech Blog)
+![Licensing](https://img.shields.io/github/license/shawnlittrel/tech-blog-mvc)   ![GitHub language count](https://img.shields.io/github/languages/count/shawnlittrel/tech-blog-mvc)      ![GitHub issues](https://img.shields.io/github/issues/shawnlittrel/tech-blog-mvc)   ![GitHub closed issues](https://img.shields.io/github/issues-closed/shawnlittrel/tech-blog-mvc)      ![GitHub last commit](https://img.shields.io/github/last-commit/shawnlittrel/tech-blog-mvc)
 ---
 
 
